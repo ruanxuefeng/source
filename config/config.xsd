@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <xs:element name="Root">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Menu" type="Menu" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Menu">
+        <xs:sequence>
+            <xs:element name="Meta" type="Meta"/>
+            <xs:element name="Menu" type="Menu" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Action" type="Action" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="path" type="xs:string" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="component" type="xs:string" use="required"/>
+        <xs:attribute name="redirect" type="xs:string"/>
+        <xs:attribute name="hideMenu" type="xs:boolean" default="false"/>
+    </xs:complexType>
+
+    <xs:complexType name="Meta">
+        <xs:attribute name="title" type="xs:string" use="required"/>
+        <xs:attribute name="ignoreAuth" type="xs:boolean"/>
+        <xs:attribute name="affix" type="xs:boolean"/>
+        <xs:attribute name="icon" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="Action">
+        <xs:sequence>
+            <xs:element name="Meta" type="Meta"/>
+            <xs:element name="Key" type="Key"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="Key">
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+</xs:schema>
