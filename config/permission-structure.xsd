@@ -21,7 +21,6 @@
         <xs:attribute name="name" type="xs:string" use="required"/>
         <xs:attribute name="component" type="xs:string" use="required"/>
         <xs:attribute name="redirect" type="xs:string"/>
-        <xs:attribute name="hideMenu" type="xs:boolean" default="false"/>
     </xs:complexType>
 
     <xs:complexType name="Meta">
@@ -29,6 +28,7 @@
         <xs:attribute name="ignoreAuth" type="xs:boolean"/>
         <xs:attribute name="affix" type="xs:boolean"/>
         <xs:attribute name="icon" type="xs:string"/>
+        <xs:attribute name="hideMenu" type="xs:boolean" default="false"/>
     </xs:complexType>
 
     <xs:complexType name="Action">
